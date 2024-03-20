@@ -1,15 +1,15 @@
 //
-//  ChallangeApp.swift
-//  Challange
+//  ChallencePracticeApp.swift
+//  ChallencePractice
 //
-//  Created by GCortinas on 3/15/24.
+//  Created by GCortinas on 3/18/24.
 //
 
 import SwiftUI
 import SwiftData
 
 @main
-struct ChallangeApp: App {
+struct ChallencePracticeApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
