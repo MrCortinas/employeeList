@@ -24,11 +24,13 @@ struct AllEmployees: Codable {
 struct EmployeeSingle: Codable {
     let status: String?
     let data: Employee?
+    let message: String?
 }
 
 struct CreateEmployee: Codable {
     let status: String?
     let data: NewEmployee?
+    let message: String?
 }
 
 struct NewEmployee: Codable {
@@ -41,6 +43,7 @@ struct NewEmployee: Codable {
 struct UpdateEmployee: Codable {
     let status: String?
     let data: NewEmployee?
+    let message: String?
 }
 
 struct DeleteEmployee: Codable {

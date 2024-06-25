@@ -14,10 +14,11 @@
 		8603E4682BA89725002F4854 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8603E4672BA89725002F4854 /* Preview Assets.xcassets */; };
 		8603E4742BA91E0E002F4854 /* TictactToe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603E4732BA91E0E002F4854 /* TictactToe.swift */; };
 		8603E4772BA9D668002F4854 /* networkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603E4762BA9D668002F4854 /* networkData.swift */; };
-		8603E4792BAA2B7D002F4854 /* EmployeeJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603E4782BAA2B7D002F4854 /* EmployeeJsonData.swift */; };
+		8603E4792BAA2B7D002F4854 /* EmployeeEntedy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603E4782BAA2B7D002F4854 /* EmployeeEntedy.swift */; };
 		8603E47B2BAA6861002F4854 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603E47A2BAA6861002F4854 /* ActivityIndicator.swift */; };
 		8603E47D2BAA6E9C002F4854 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603E47C2BAA6E9C002F4854 /* GameState.swift */; };
 		8603E47F2BAA6F1F002F4854 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603E47E2BAA6F1F002F4854 /* Cell.swift */; };
+		86C4F7212BB30E1C0096D766 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4F7202BB30E1C0096D766 /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,10 +30,11 @@
 		8603E4672BA89725002F4854 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8603E4732BA91E0E002F4854 /* TictactToe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TictactToe.swift; sourceTree = "<group>"; };
 		8603E4762BA9D668002F4854 /* networkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networkData.swift; sourceTree = "<group>"; };
-		8603E4782BAA2B7D002F4854 /* EmployeeJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeJsonData.swift; sourceTree = "<group>"; };
+		8603E4782BAA2B7D002F4854 /* EmployeeEntedy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeEntedy.swift; sourceTree = "<group>"; };
 		8603E47A2BAA6861002F4854 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		8603E47C2BAA6E9C002F4854 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		8603E47E2BAA6F1F002F4854 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		86C4F7202BB30E1C0096D766 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				8603E4802BAA775D002F4854 /* Activity Indicator  */,
 				8603E4602BA89723002F4854 /* ContentView.swift */,
 				8603E4732BA91E0E002F4854 /* TictactToe.swift */,
+				86C4F7202BB30E1C0096D766 /* SwiftUIView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -115,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				8603E4762BA9D668002F4854 /* networkData.swift */,
-				8603E4782BAA2B7D002F4854 /* EmployeeJsonData.swift */,
+				8603E4782BAA2B7D002F4854 /* EmployeeEntedy.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -198,10 +201,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8603E4792BAA2B7D002F4854 /* EmployeeJsonData.swift in Sources */,
+				8603E4792BAA2B7D002F4854 /* EmployeeEntedy.swift in Sources */,
 				8603E4742BA91E0E002F4854 /* TictactToe.swift in Sources */,
 				8603E4612BA89723002F4854 /* ContentView.swift in Sources */,
 				8603E47B2BAA6861002F4854 /* ActivityIndicator.swift in Sources */,
+				86C4F7212BB30E1C0096D766 /* SwiftUIView.swift in Sources */,
 				8603E4632BA89723002F4854 /* Item.swift in Sources */,
 				8603E47D2BAA6E9C002F4854 /* GameState.swift in Sources */,
 				8603E47F2BAA6F1F002F4854 /* Cell.swift in Sources */,

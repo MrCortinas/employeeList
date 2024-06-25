@@ -16,18 +16,24 @@ struct ContentView: View {
     
     var body: some View {
         NavigationSplitView {
-            Button(action: contactsList) {
-                Label("Load Contact", systemImage: "arrow.down")
-            }.padding()
             List {
                 ForEach(items) { item in
                     NavigationLink {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .frame(width: 132.0, height: 132.0)
                         Text("id: \(item.id)")
+                            .font(.subheadline)
                         Text("name: \(item.name)")
+                            .font(.largeTitle)
                         Text("salary: \(item.salary)")
+                            .font(.caption)
                         Text("age: \(item.age)")
                     } label: {
-                        Text("id: \(item.id)\nname: \(item.name)\nsalary: \(item.salary)\nage: \(item.age)")
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .frame(width: 32.0, height: 32.0)
+                        Text("Name: \(item.name), Age: \(item.age)\nID: \(item.id), Salary: $\(item.salary)")
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -35,6 +41,12 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
+                }
+                ToolbarItem {
+                    Button(action: contactsList) {
+                        Image(systemName: "square.and.arrow.down.fill")
+                            .tint(.red)
+                    }
                 }
                 ToolbarItem {
                     Button(action: addItem) {
@@ -49,10 +61,6 @@ struct ContentView: View {
         } detail: {
             Text("Select an item")
         }
-        
-        
-       
-        
     }
 
     private func addItem() {
@@ -75,8 +83,7 @@ struct ContentView: View {
     }
     
     private func contactsList() {
-        
-        NetworkSevice.getAllEmployees { employeelist in
+        NetworkSevice.callAPI.getAllEmployees { employeelist in
             for index in (0 ..< items.count).reversed() {
                 modelContext.delete(items[index])
             }

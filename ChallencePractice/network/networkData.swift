@@ -15,7 +15,7 @@ enum API: String {
     case delete = "https://dummy.restapiexample.com/api/v1/delete"
     /// generate a URL to call the API
     func url(parameters: String?) -> URL? {
-        if let value = parameters {
+        if let value = parameters, !value.isEmpty {
             let urlString = self.rawValue + "/" + value
             return URL(string: urlString)
         }
@@ -48,11 +48,11 @@ enum API: String {
 }
 ///use to mocks the service calls
 protocol NetworkAPI {
-    static func getAllEmployees(completionHandler: @escaping(AllEmployees?)->())
-    static func getSingleEmploye(id: String, completionHandler: @escaping(EmployeeSingle?)->())
-    static func postNewEmploye(body: [String:String], completionHandler: @escaping(CreateEmployee?)->())
-    static func putEmployee(id: String, body: [String:String], completionHandler: @escaping(UpdateEmployee?)->())
-    static func deleteEmploye(id: String, completionHandler: @escaping(DeleteEmployee?)->())
+    func getAllEmployees(completionHandler: @escaping(AllEmployees?)->())
+    func getSingleEmploye(id: String, completionHandler: @escaping(EmployeeSingle?)->())
+    func postNewEmploye(body: [String:String], completionHandler: @escaping(CreateEmployee?)->())
+    func putEmployee(id: String, body: [String:String], completionHandler: @escaping(UpdateEmployee?)->())
+    func deleteEmploye(id: String, completionHandler: @escaping(DeleteEmployee?)->())
 }
 
 class NetworkSevice: NetworkAPI {
@@ -103,7 +103,7 @@ class NetworkSevice: NetworkAPI {
         }
     }
     ///gets a list of all employees to display
-    static func getAllEmployees(completionHandler: @escaping(AllEmployees?)->()) {
+    func getAllEmployees(completionHandler: @escaping(AllEmployees?)->()) {
         NetworkSevice.serviceCall(apiURL: .allEmployees, parameters: nil, body: nil, headerFields: nil) { (data, response, error) in
             if let data = data, let employeesdata = try? JSONDecoder().decode(AllEmployees.self, from: data) {
                 completionHandler(employeesdata)
@@ -111,7 +111,7 @@ class NetworkSevice: NetworkAPI {
         }
     }
     /// get  details data from employee by using the ID
-    static func getSingleEmploye(id: String, completionHandler: @escaping (EmployeeSingle?) -> ()) {
+    func getSingleEmploye(id: String, completionHandler: @escaping (EmployeeSingle?) -> ()) {
         NetworkSevice.serviceCall(apiURL: .employee, parameters: id, body: nil, headerFields: nil) {(data, response, error) in
             if let data = data, let employeesdata = try? JSONDecoder().decode(EmployeeSingle.self, from: data) {
                 completionHandler(employeesdata)
@@ -119,7 +119,7 @@ class NetworkSevice: NetworkAPI {
         }
     }
     /// can create a new employee with a dictionary EX:   body:  {"name":"test","salary":"123","age":"23"}
-    static func postNewEmploye(body: [String:String], completionHandler: @escaping (CreateEmployee?) -> ()) {
+    func postNewEmploye(body: [String:String], completionHandler: @escaping (CreateEmployee?) -> ()) {
         var jsonData = Data()
         if let json = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted) {
             jsonData = json
@@ -131,7 +131,7 @@ class NetworkSevice: NetworkAPI {
         }
     }
     ///can update a user by using one employee ID and a dictionary EX:  id: "1"   body:   {"name":"test","salary":"123","age":"23"}
-    static func putEmployee(id: String, body: [String:String], completionHandler: @escaping (UpdateEmployee?) -> ()) {
+    func putEmployee(id: String, body: [String:String], completionHandler: @escaping (UpdateEmployee?) -> ()) {
         NetworkSevice.serviceCall(apiURL: .employee, parameters: id, body: nil, headerFields: nil) {(data, response, error) in
             if let data = data, let employeesdata = try? JSONDecoder().decode(UpdateEmployee.self, from: data) {
                 completionHandler(employeesdata)
@@ -139,7 +139,7 @@ class NetworkSevice: NetworkAPI {
         }
     }
     /// deletes a spesific user using the employee ID
-    static func deleteEmploye(id: String, completionHandler: @escaping (DeleteEmployee?) -> ()) {
+    func deleteEmploye(id: String, completionHandler: @escaping (DeleteEmployee?) -> ()) {
         NetworkSevice.serviceCall(apiURL: .employee, parameters: id, body: nil, headerFields: nil) {(data, response, error) in
             if let data = data, let employeesdata = try? JSONDecoder().decode(DeleteEmployee.self, from: data) {
                 completionHandler(employeesdata)
